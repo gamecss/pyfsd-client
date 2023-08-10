@@ -49,8 +49,11 @@ start = "twistd -n fsdclient"
 [tool.pdm.version]
 source = "call"
 getter = "versioneer:get_version"
-write_to = "src/pyfsd/client/_version.py"
+write_to = "pyfsd/client/_version.py"
 write_template = "version = \"{}\"\n"
+
+[tool.pdm.build]
+includes = ["src/pyfsd/", "src/twisted/"]
 
 [tool.pyright]
 exclude = [

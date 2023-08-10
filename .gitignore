@@ -160,3 +160,22 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# Pickle dumped data
+*.pickle
+
+# Debug files
+debug.py
+test.py
+
+# Vim
+*.swp
+*.swo
+
+# Twisted
+dropin.cache
+twistd.log
+twistd.pid
+
+# PyFSD Client
+pyfsd_client.toml
