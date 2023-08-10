@@ -1,0 +1,67 @@
+[project]
+name = "pyfsd-client"
+dynamic = ["version"]
+description = "FSD client based on pyfsd architecture."
+authors = [
+    {name = "gamecss", email = "52902973+gamecss@users.noreply.github.com"},
+]
+dependencies = [
+    "pyfsd~=0.0.0.dev2",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.8.1"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+docs = [
+    "mkdocs-material>=9.1.18",
+    "mkdocstrings[python]>=0.22.0",
+    "mkdocs-minify-plugin>=0.6.4",
+]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.3.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+    "mypy-zope>=0.9.1",
+    "mypy>=1.0.1",
+    "flake8-pyi>=23.6.0",
+]
+
+[build-system]
+requires = ["pdm-backend", "versioneer[toml]>=0.29"]
+build-backend = "pdm.backend"
+
+[tool.isort]
+profile = "black"
+
+[tool.pdm.scripts]
+start = "twistd -n fsdclient"
+
+[tool.pdm.version]
+source = "call"
+getter = "versioneer:get_version"
+write_to = "src/pyfsd/client/_version.py"
+write_template = "version = \"{}\"\n"
+
+[tool.pyright]
+exclude = [
+    "**/__pycache__",
+    "__pypackages__",
+    ".venv",
+    ".git",
+]
+
+[tool.versioneer]
+VCS = "git"
+style = "pep440"
+versionfile_source = "NONE"
+versionfile_build = "NONE"
